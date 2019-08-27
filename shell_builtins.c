@@ -10,7 +10,7 @@ int execute_line(char **args)
 {
   int i;
   char *str;
-  
+
   builtins_t built_ins[] = {
     {"env", hsh_env},
     {"help", hsh_help},
@@ -81,13 +81,26 @@ int hsh_help(void)
 
 int hsh_exit(char **args)
 {
-  int status;
-  if(args[1] != NULL)
+/*  int status;*/
+  int i = 0;
+/*if(args[1] != NULL)
     {
       status = _atoi(args[1]);
       printf("%d", status);
       if (status >= 0)
 	exit(status);
-    }
+    }*/
+  if (args != NULL)
+  {
+	 if (!args[i])
+	 {
+		  while(args[i])
+		  {
+			  free(args[i]);
+			  i++;
+		  }
+	 }
+	  free(args);
+  }
   exit(0);
 }
