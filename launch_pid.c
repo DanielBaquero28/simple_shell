@@ -10,7 +10,6 @@
 
 extern char **environ;
 
-
 int launch_pid(char **args)
 {
   int i;
@@ -21,7 +20,9 @@ int launch_pid(char **args)
   if (pid == 0)
     {
       if(execve(args[0], args, NULL) == -1)
-	perror( "Error: ");
+	{
+	perror( "Error ");
+	}
       else
 	execve(args[0], args, environ);
     }
