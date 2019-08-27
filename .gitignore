@@ -1,0 +1,4 @@
+#Ignoring iterated files saved in buffer
+*~
+#Ignoring executable
+hsh
