@@ -62,7 +62,8 @@ total 56
 -rw-r--r-- 1 jay jay   997 Aug 28 01:59 shell.h
 -rw-r--r-- 1 jay jay  1723 Aug 28 01:59 shell_builtins.c
 -rw-r--r-- 1 jay jay  1331 Aug 28 01:59 strings.c
-drwxr-xr-x 2 jay jay  4096 Aug 28 01:59 test_simple_shell:```
+drwxr-xr-x 2 jay jay  4096 Aug 28 01:59 test_simple_shell
+```
 
 ----------------
 Authors
@@ -70,3 +71,8 @@ Authors
 
 * **Vivian Ortiz** - [vivianlorenaortiz](https://github.com/vivianlorenaortiz)
 * **Daniel Baquero** - [DanielBquero28](https://github.com/DanielBaquero28)
+
+--------------
+License
+-------------
+simple_shell is open source and therefore free to download and use without permission.
