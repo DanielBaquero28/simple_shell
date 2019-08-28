@@ -35,7 +35,6 @@ drwxr-xr-x 2 jay jay  4096 Aug 28 01:59 test_simple_shell
 
 .PP
  $ echo "/bin/ls" | ./hsh
-$cisfun# /bin/ls
 README.md  _atoi.c  hsh  launch_pid.c  parse_line.c  shell.c  shell.h  shell_b
 
 .SH SEE ALSO
