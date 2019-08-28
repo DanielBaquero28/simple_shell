@@ -2,10 +2,12 @@
 
 .SH NAME
 
-hsh - Simple Shell
+.B simple_shell - hsh
+- command line interpreter or shell
 
 .SH SYNOPSIS
-.B hsh
+
+.B ./hsh
 .I [OPTIONS] [FILE]
 .B Interactive mode
 .I [command_name][option_name][argument ...]
@@ -40,7 +42,11 @@ README.md  _atoi.c  hsh  launch_pid.c  parse_line.c  shell.c  shell.h  shell_b
 sh(1)
 
 .SH BUGS
-Keep in mind this is still a Work in progress and does not have fully functionality of a shell
+
+This is still a work in progress and does not have the full functionality of a shell
 
 .SH AUTHORS
-Written by Vivin Ortiz & Daniel Baquero 
+
+vivian Ortiz <973@holbertonschool.com>
+
+Daniel Baquero <835@holbertonschool.com>
