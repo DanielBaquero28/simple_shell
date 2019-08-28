@@ -20,10 +20,12 @@ extern char **environ;
  * @s: Pointer to characters
  * @f: Pointer to matching function
  **/
-typedef struct list_t{
-  char *s;
-  int (*f)(char **args);
-}builtins_t;
+typedef struct list_t
+{
+	char *s;
+	int (*f)(char **args);
+
+} builtins_t;
 /*  Builtin Functions */
 int hsh_env(char **args);
 int hsh_help(char **args);

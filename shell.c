@@ -2,34 +2,37 @@
 
 /**
  * loop_cmd - Interprets the command line.
+ *@args: Arguments to shell.
  * Return: Nothing
  **/
 
-int execute_line();
+int execute_line(char **args);
+
 int loop_cmd(void)
 {
-  char *line = NULL;
-  char **args = NULL;
-  int i = 0;
-  while (1)
-    {
-	    i= 0;
-	    _puts("$cisfun# ");
-	    line = read_line();
-	    args = parse_line(line);
-	    free(line);
-	    execute_line(args);
-	    if(args != NULL)
-	    {
-	      while(args[i])
+	char *line = NULL;
+	char **args = NULL;
+	int i = 0;
+
+	while (1)
+	{
+		i = 0;
+		_puts("$cisfun# ");
+		line = read_line();
+		args = parse_line(line);
+		free(line);
+		execute_line(args);
+		if (args != NULL)
 		{
-		  free(args[i]);
-		  i++;
+			while (args[i])
+			{
+				free(args[i]);
+				i++;
+			}
 		}
-	    }
-	    free(args);
-    }
-  return(0);
+		free(args);
+	}
+	return (0);
 }
 /**
  * main - Calls loop function and if succeeds it returns an EXIT_SUCCESS
@@ -39,9 +42,9 @@ int loop_cmd(void)
  **/
 int main(int ac, char **av)
 {
-  (void)ac;
-  (void)av;
+	(void)ac;
+	(void)av;
 
-  loop_cmd();
-  return EXIT_SUCCESS;
+	loop_cmd();
+	return (EXIT_SUCCESS);
 }
