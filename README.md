@@ -36,13 +36,9 @@ Installation
 ---------------------
 
 -Clone this repository:``` https://github.com/DanielBaquero28/simple_shell```<br>
--Change directories into the repository: cd simple_shell<br>
--Compile: ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```<br>
--Run the shell in interactive mode: ```./hsh```<br>
--Clone this repository: git@github.com:DanielBaquero28/simple_shell.git.<br>
--Change directories into the repository: cd simple_shell<br>
--Compile: gcc -Wall -Werror -Wextra -pedantic *.c -o hsh<br>
--Run the shell in interactive mode: ./hsh<br>
+<li>Change directories into the repository: cd simple_shell</li>
+<li>Compile: ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```</li>
+<li>Run the shell in interactive mode: ```./hsh```</li>
 
 ----------------
 Usage
