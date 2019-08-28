@@ -29,12 +29,12 @@ char **parse_line(char *lineptr)
 {
   char **tokens = NULL;
   char *len = NULL;
-  int i = 0, size = 64; /* Changed data type from size_t to int *//* Changed size from 3 to 64 */
+  int i = 0, size = 1024; /* Changed data type from size_t to int *//* Changed size from 3 to 64 */
   unsigned int j;
   if (lineptr == NULL)
     return (NULL);
 
-  tokens = calloc(sizeof(char*), size); /* Changed size and char with asterisk.*/
+  tokens = calloc(sizeof(char*), size + 1); /* Changed size and char with asterisk.*/
   if (tokens == NULL)
     {
       perror("Allocation Error!"); /* Changed to perror to assign error accordingly */
@@ -43,7 +43,7 @@ char **parse_line(char *lineptr)
   len = strtok(lineptr, DELIMITER);
   while (len != NULL)
     {
-	    tokens[i] = malloc(sizeof(char) * (strlen(len) + 1));
+      tokens[i] = malloc(sizeof(char)* (strlen(len) + 1));
       if (!tokens[i])
 	{
 	  perror("Allocation Error!");

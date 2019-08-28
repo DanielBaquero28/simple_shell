@@ -21,14 +21,11 @@ int loop_cmd(void)
 	    execute_line(args);
 	    if(args != NULL)
 	    {
-		    if(!args[i])
-		    {
-			    while(args[i])
-			    {
-				    free(args[i]);
-				    i++;
-			    }
-		    }
+	      while(args[i])
+		{
+		  free(args[i]);
+		  i++;
+		}
 	    }
 	    free(args);
     }
