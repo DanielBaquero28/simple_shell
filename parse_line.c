@@ -34,7 +34,7 @@ char **parse_line(char *lineptr)
 
 	if (lineptr == NULL)
 		return (NULL);
-	tokens = calloc(sizeof(char *), size + 1);
+	tokens = _calloc(sizeof(char *), size + 1);
 	if (tokens == NULL)
 	{
 		perror("Allocation Error!");

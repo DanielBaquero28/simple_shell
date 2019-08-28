@@ -43,4 +43,6 @@ void _puts(char *str);
 int _putchar(char c);
 int _atoi(char *line);
 int _strcmp(char *s1, char *s2);
+void *_calloc(unsigned int nmemb, unsigned int size);
+
 #endif
