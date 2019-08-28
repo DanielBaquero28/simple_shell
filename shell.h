@@ -27,7 +27,8 @@ typedef struct list_t
 
 } builtins_t;
 /*  Builtin Functions */
-int hsh_env(char **args);
+int hsh_env(char **env);
+void free_env(char **env);
 int hsh_help(char **args);
 int hsh_exit(char **args);
 /* Shell Basic Interpretation */
