@@ -47,7 +47,7 @@ Installation
 ----------------
 Usage
 ---------------
-The simple_simple is designed to execute commands in a similar manner to sh.
+Enter the executable in your terminal after compiling.
 ```
 $cisfun# /bin/ls
 README.md  _atoi.c  hsh  launch_pid.c  parse_line.c  shell.c  shell.h  shell_builtins.c  strings.c  test_simple_shell
