@@ -35,7 +35,7 @@ The project is designed to run in the Ubuntu 14.04 LTS linux environment and to 
 Installation
 ---------------------
 
--Clone this repository:``` git@github.com:DanielBaquero28/simple_shell.git.```<br>
+-Clone this repository:``` https://github.com/DanielBaquero28/simple_shell```<br>
 -Change directories into the repository: cd simple_shell<br>
 -Compile: ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```<br>
 -Run the shell in interactive mode: ```./hsh```<br>
