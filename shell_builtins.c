@@ -17,19 +17,28 @@ int execute_line(char **args)
     {"exit", hsh_exit},
     {NULL, NULL}
   };
+  
+  if (args == NULL)
+    {
+      free(args);
+      return(EXIT_FAILURE);
+    }
   if (args[0] == NULL)
     {
       return (1);
     }
   i = 0;
-  while (built_ins[i].s != NULL)
+  if(args != NULL)
     {
-      str = built_ins[i].s;
-      if (_strcmp(args[0], str) == 0)
+      while (built_ins[i].s != NULL)
 	{
-	  return(built_ins[i].f());
+	  str = built_ins[i].s;
+	  if (_strcmp(args[0], str) == 0)
+	    {
+	      return(built_ins[i].f(args));
+	    }
+	  i++;
 	}
-      i++;
     }
   return(launch_pid(args));
 }
@@ -39,10 +48,11 @@ int execute_line(char **args)
  * Return: 1 if successful.
  **/
 
-int hsh_env(void)
+int hsh_env(char **args)
 {
   int i;
   char *env = *environ;
+  (void)args;
   i = 0;
   while(env != '\0')
     {
@@ -61,8 +71,9 @@ int hsh_env(void)
  * Return: 0 if successful
  **/
 
-int hsh_help(void)
+int hsh_help(char **args)
 {
+  (void)args;
   _puts("This is Daniel's and Vivi's hsh\n");
   _puts("Type builtins name and hit enter\n");
   _puts("These are the builtins we offer:\n");
@@ -81,13 +92,23 @@ int hsh_help(void)
 
 int hsh_exit(char **args)
 {
-  int status;
-  if(args[1] != NULL)
+/*  int status;*/
+  int i = 0;
+/*if(args[1] != NULL)
     {
       status = _atoi(args[1]);
       printf("%d", status);
       if (status >= 0)
 	exit(status);
-    }
+    }*/
+  if (args != NULL)
+  {
+    while(args[i])
+      {
+	free(args[i]);
+	i++;
+      }
+    free(args);
+  }
   exit(0);
 }

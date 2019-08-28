@@ -10,17 +10,26 @@ int loop_cmd(void)
 {
   char *line = NULL;
   char **args = NULL;
-
+  int i = 0;
   while (1)
     {
-      _puts("$cisfun# ");
-      line = read_line();
-      args = parse_line(line);
-      execute_line(args);
-      free(line);
-      free(args);
+	    i= 0;
+	    _puts("$cisfun# ");
+	    line = read_line();
+	    args = parse_line(line);
+	    free(line);
+	    execute_line(args);
+	    if(args != NULL)
+	    {
+	      while(args[i])
+		{
+		  free(args[i]);
+		  i++;
+		}
+	    }
+	    free(args);
     }
-  return (0);
+  return(0);
 }
 /**
  * main - Calls loop function and if succeeds it returns an EXIT_SUCCESS
