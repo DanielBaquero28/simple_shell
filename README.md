@@ -11,15 +11,15 @@ Simple shell is a command-line interpreter or shell that provides a command line
 --------------
 Learning Objectives
 --------------
-<li>How does a shell work.<br>
-<li>What is a pid and a ppid.<br>
-<li>How to manipulate the environment of the current process.<br>
-<li>What is the difference between a function and a system call.<br>
-<li>How to create processes.<br>
-<li>What are the three prototypes of main.<br>
-<li>How does the shell use the``` PATH``` to find the programs.<br>
-<li>How to execute another program with the``` execve``` system call.<br>
-<li>How to suspend the execution of a process until one of its children terminates.<br>
+* How does a shell work.<br>
+* What is a pid and a ppid.<br>
+* How to manipulate the environment of the current process.<br>
+* What is the difference between a function and a system call.<br>
+* How to create processes.<br>
+* What are the three prototypes of main.<br>
+* How does the shell use the``` PATH``` to find the programs.<br>
+* How to execute another program with the``` execve``` system call.<br>
+* How to suspend the execution of a process until one of its children terminates.<br>
 
 --------------
 Description
@@ -35,10 +35,10 @@ The project is designed to run in the Ubuntu 14.04 LTS linux environment and to 
 Installation
 ---------------------
 
-<li>Clone this repository:``` https://github.com/DanielBaquero28/simple_shell```<br>
-<li>Change directories into the repository: cd simple_shell</li>
-<li>Compile: ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```<br>
-<li>Run the shell in interactive mode: ```./hsh```</li>
+* Clone this repository:``` https://github.com/DanielBaquero28/simple_shell```<br>
+* Change directories into the repository: cd simple_shell</li>
+* Compile: ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```<br>
+* Run the shell in interactive mode: ```./hsh```</li>
 
 ----------------
 Usage
