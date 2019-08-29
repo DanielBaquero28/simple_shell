@@ -1,50 +1,54 @@
 #include "shell.h"
 
 /**
- * loop_cmd - Interprets the command line.
- *@args: Arguments to shell.
- * Return: Nothing
- **/
+ * main - Calls the loop_cmd function, where it interprets
+ * completely the command line.
+ * @ac: Argument Count (number)
+ * @av: Argument Vector (Multidimensional Array)
+ * @env: Environment Variable.
+ * Return: 0 when successful
+**/
 
-int execute_line(char **args);
-
-int loop_cmd(void)
+int main(int ac, char **av, char **env)
 {
-	char *line = NULL;
-	char **args = NULL;
-	int i = 0;
+(void)ac;
+(void)av;
 
-	while (1)
-	{
-		i = 0;
-		_puts("$cisfun# ");
-		line = read_line();
-		args = parse_line(line);
-		free(line);
-		execute_line(args);
-		if (args != NULL)
-		{
-			while (args[i])
-			{
-				free(args[i]);
-				i++;
-			}
-		}
-		free(args);
-	}
-	return (0);
+loop_cmd(env);
+
+return (0);
 }
-/**
- * main - Calls loop function and if succeeds it returns an EXIT_SUCCESS
- * @ac: Argument Count
- * @av: Argument Vector
- * Return: EXIT_SUCCESS if request is successful
- **/
-int main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
 
-	loop_cmd();
-	return (EXIT_SUCCESS);
+/**
+ * loop_cmd - Interprets the complete input command line.
+ * @env: Environment Variable
+ * Return: Nothing.
+**/
+
+void loop_cmd(char **env)
+{
+int status;
+char *input, *delim, *path_line, **args, **path;
+
+if (isatty(STDIN_FILENO))
+write(STDOUT_FILENO, "$ ", 2);
+path_line = get_env(env, "PATH");
+delim = ":";
+path = parse_line(path_line, delim);
+delim = " \t\r\a\n";
+do {
+input = read_line(path);
+args = parse_line(input, delim);
+status = shell_status(args, path, env, input);
+free(input);
+free(args);
+if (status == -1)
+{
+free(path);
+exit(EXIT_SUCCESS);
+}
+if (isatty(STDIN_FILENO))
+write(STDOUT_FILENO, "$ ", 2);
+} while (status);
+free(path);
 }

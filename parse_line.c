@@ -1,60 +1,47 @@
 #include "shell.h"
 
 /**
-* read_line - Reads the line input.
-* Return: The address of the first input character
-* where the input string will be stored.
+ * parse_line - Tokenizes a string input line with a delimiter
+ * that separates them in arguments gruoped in an array of pointers..
+ * @input: String that is entered as input.
+ * @delim: Delimiter that determines where the tokenization is made.
+ * Return: Pointer to the first position of an array of pointers.
 **/
-char *read_line(void)
+
+char **parse_line(char *input, char *delim)
 {
+int i = 0;
+int buffersize = 1024, buffersize_real = 0;
+char **args;
 
-	char *lineptr = NULL;
-	size_t bufsize = 0; /* Getline reallocates the buffer for us */
+args = malloc(buffersize * sizeof(char *));
 
-	if (getline(&lineptr, &bufsize, stdin) == -1)
-	{
-		free(lineptr);
-		exit(-1);
-	}
-	return (lineptr);
+if (!args)
+{
+perror("Error");
+exit(EXIT_FAILURE);
 }
-
-/**
-* parse_line - Tokenizes a string input line with a delimiter.
-* @lineptr: Line buffer of the standard input.
-* Return: Pointer to the first postion of an array of pointers.
-*/
-
-char **parse_line(char *lineptr)
+args[i] = strtok(input, delim);
+i++;
+while (1)
 {
-	char **tokens = NULL;
-	char *len = NULL;
-	int i = 0, size = 1024;
-	unsigned int j;
-
-	if (lineptr == NULL)
-		return (NULL);
-	tokens = _calloc(sizeof(char *), size + 1);
-	if (tokens == NULL)
-	{
-		perror("Allocation Error!");
-		return (NULL);
-	}
-	len = strtok(lineptr, DELIMITER);
-	while (len != NULL)
-	{
-		tokens[i] = malloc(sizeof(char) * (strlen(len) + 1));
-		if (!tokens[i])
-		{
-			perror("Allocation Error!");
-			return (NULL);
-		}
-		for (j = 0; j < strlen(len); j++)
-			tokens[i][j] = len[j];
-		tokens[i][j] = '\0';
-		len = strtok(NULL, DELIMITER);
-		i++;
-	}
-	tokens[i] = NULL;
-	return (tokens);
+args[i] = strtok(NULL, delim);
+if (args[i] == NULL)
+{
+args[i + 1] = NULL;
+return (args);
+}
+if (i >= buffersize)
+{
+buffersize_real = buffersize;
+buffersize += BUFFER_SIZE;
+args = _realloc(args, buffersize_real, buffersize);
+if (!args)
+{
+perror("Error");
+exit(EXIT_FAILURE);
+}
+}
+i++;
+}
 }
