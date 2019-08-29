@@ -1,31 +1,19 @@
 #include "shell.h"
 
-/**
- * print_str - Prints a String as a system call.
- * @str: Pointer that holds the String that is printed.
- * Return: Nothing
- */
-void print_str(char *str)
-{
-  int _strlen();
-  write(STDOUT_FILENO, str, _strlen(str));
-}
 
 /**
  * _strlen - Finds the length of a string
  * @s: The pointer from which the length of the string is found.
- *
  * Return: Nothing
- */
+**/
 
 int _strlen(char *s)
 {
-  int i;
-  for (i = 0; s[i] != 0; i++)
-    {
+int len;
 
-    }
-  return (i);
+for (len = 0; s[len]; len++)
+;
+return (len);
 }
 
 /**
@@ -33,53 +21,47 @@ int _strlen(char *s)
  * @c: The character to print
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropiately.
- */
+**/
 
 int _putchar(char c)
 {
-  return (write(1, &c, 1));
+return (write(1, &c, 1));
 }
 
 /**
- *_puts - function that prints a strings
- * @str:  "I do not fear computers. I fear the lack of them - Isaac Asimov"
+ * _puts - Prints a string without format.
+ * @str: String that will be printed.
  * Return: Nothing
  */
-
 void _puts(char *str)
-
 {
-  int i;
+int i;
 
-  for (i = 0; str[i] != '\0'; i++)
-    {
-      _putchar(str[i]);
-    }
+for (i = 0; str[i]; i++)
+{
+if (str[i] == '\0')
+break;
+_putchar(str[i]);
+}
 }
 
 /**
  * _strcmp - Compares two strings
- * @s1: Pointer that links with a string
- * @s2: Pointer that links with a string
- *
- * Return: Nothing
+ * @str1: String to be compared from.
+ * @str2: String to be compared with.
+ * Return: The comparison in integers.
  **/
 
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *str1, char *str2)
 {
-  int i;
-  i = 0;
-  while (s1[i] != '\0')
-    {
-      if (s1[i] > s2[i])
-	{
-	  return (s1[i] - s2[i]);
-	}
-      if (s1[i] < s2[i])
-	{
-	  return (s1[i] - s2[i]);
-	}
-      i++;
-    }
-  return (0);
+int i;
+
+i = 0;
+while (str1[i] == str2[i])
+{
+if (str1[i] == '\0')
+return (0);
+i++;
+}
+return (str1[i] - str2[i]);
 }
